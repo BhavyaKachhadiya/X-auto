@@ -30,6 +30,7 @@ jobs:
         uses: owenyoung/env-var-action@v1
         with:
           ENV_VARS: |
+            GEMINI_API_KEY
             TWITTER_API_KEY
             TWITTER_ACCESS_TOKEN
             TWITTER_ACCESS_SECRET
