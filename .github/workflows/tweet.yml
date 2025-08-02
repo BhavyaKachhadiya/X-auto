@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: 📡 Call /tweet endpoint
         run: |
-          curl -X GET "https://vercel.com/bhavyakachhadiyas-projects/x-auto/7oSs6bgdFfMRNogvw1zeNtmSX4v6/tweet"
+          curl -X GET "https://x-auto-ochre.vercel.app/"
