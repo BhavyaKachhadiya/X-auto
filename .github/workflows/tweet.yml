@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: 📡 Call /tweet endpoint
         run: |
-          curl -X GET "https://x-auto-ochre.vercel.app/tweet"
+          curl -X GET "${{ secrets.TWEET_API_URL }}"
