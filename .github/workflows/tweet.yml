@@ -2,41 +2,18 @@ name: Tweet every day
 
 on:
   schedule:
-    - cron: '30 3 * * *'  # 09:00 AM IST
-    - cron: '30 6 * * *'  # 12:00 PM IST
-    - cron: '30 9 * * *'  # 03:00 PM IST
-    - cron: '30 12 * * *' # 06:00 PM IST
-    - cron: '30 15 * * *' # 09:00 PM IST
-  workflow_dispatch:  # Optional: allows you to run it manually
-
+    - cron: '30 3 * * *'   # 09:00 AM IST
+    - cron: '30 6 * * *'   # 12:00 PM IST
+    - cron: '30 9 * * *'   # 03:00 PM IST
+    - cron: '30 12 * * *'  # 06:00 PM IST
+    - cron: '30 15 * * *'  # 09:00 PM IST
+  workflow_dispatch:
 
 jobs:
-  tweet:
+  call-tweet-endpoint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
-
-      - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 📦 Install dependencies
-        run: npm install
-
-      - name: 🔐 Load environment variables
-        uses: owenyoung/env-var-action@v1
-        with:
-          ENV_VARS: |
-            GEMINI_API_KEY
-            TWITTER_API_KEY
-            TWITTER_ACCESS_TOKEN
-            TWITTER_ACCESS_SECRET
-            ClientID  
-            ClientSecret
-
-
-      - name: 🐦 Run tweet script
-        run: npm run start
+      - name: 📡 Call /tweet endpoint
+        run: |
+          curl -X GET "${{ secrets.TWEET_API_URL }}"
