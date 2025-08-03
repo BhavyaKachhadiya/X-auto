@@ -78,7 +78,7 @@ app.get('/tweet', async (_req, res) => {
   try {
     const tweet = await twitterClient.v2.tweet(tweetText);
     console.log('✅ Tweet posted:', tweet);
-    res.send(`✅ Tweet posted: ${tweet.data.id}`);
+    res.send(`✅ Tweet posted:\n\n${tweetText}`);
   } catch (error) {
     console.error('❌ Twitter API error:', (error).message);
     res.status(500).send('❌ Failed to post tweet.');
