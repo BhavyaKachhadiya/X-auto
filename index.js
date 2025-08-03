@@ -52,7 +52,7 @@ Rotate through JavaScript topics over time. Include, but don’t limit to:
 * Event loop, performance, memory
 * Tooling (Babel, ESLint, etc.)
 
-Output only the tweet as **plain text**, with paragraph breaks (`\n\n`). No explanations or additional context.
+Output only the tweet as **plain text**, with paragraph breaks (`\\n\\n`). No explanations or additional context.
 `;
 
 // Fetch Gemini tweet
