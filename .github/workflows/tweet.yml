@@ -5,15 +5,14 @@ on:
     - cron: '30 3 * * *'   # 09:00 AM IST
     - cron: '30 6 * * *'   # 12:00 PM IST
     - cron: '30 9 * * *'   # 03:00 PM IST
-    - cron: '30 12 * * *'  # 06:00 PM IST
-    - cron: '30 15 * * *'  # 09:00 PM IST
   workflow_dispatch:
 
 jobs:
-  call-tweet-endpoint:
+  tweet:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📡 Call /tweet endpoint
+      - name: 🔗 Call /tweet endpoint
         run: |
-          curl -X GET "https://x-auto-ochre.vercel.app/tweet"
+          echo "📡 Calling tweet endpoint..."
+          curl --fail --location --max-time 20 https://x-auto-ochre.vercel.app/tweet
