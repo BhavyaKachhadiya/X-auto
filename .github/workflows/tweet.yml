@@ -10,12 +10,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-tweet-endpoint:
+  tweet:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Send HTTP request to tweet endpoint
-      uses: mendhak/http-https-endpoint-action@v1.14
-      with:
+      - name: 🔗 Call /tweet endpoint using HTTP Request Action
+        uses: fjogeleit/http-request-action@v1.14.0
+        with:
           url: 'https://x-auto-ochre.vercel.app/tweet'
           method: 'GET'
