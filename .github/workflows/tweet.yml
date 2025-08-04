@@ -5,8 +5,6 @@ on:
     - cron: '30 3 * * *'   # 09:00 AM IST
     - cron: '30 6 * * *'   # 12:00 PM IST
     - cron: '30 9 * * *'   # 03:00 PM IST
-    - cron: '30 12 * * *'  # 06:00 PM IST
-    - cron: '30 15 * * *'  # 09:00 PM IST
   workflow_dispatch:
 
 jobs:
@@ -14,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔗 Call /tweet endpoint using HTTP Request Action
-        uses: fjogeleit/http-request-action@v1.14.0
-        with:
-          url: 'https://x-auto-ochre.vercel.app/tweet'
-          method: 'GET'
+      - name: 🔗 Call /tweet endpoint
+        run: |
+          echo "📡 Calling tweet endpoint..."
+          curl --fail --location --max-time 20 https://x-auto-ochre.vercel.app/tweet
