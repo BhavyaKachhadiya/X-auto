@@ -16,9 +16,9 @@ router.get('/gemini', async (_req, res) => {
 router.get('/gemini/thread', async (_req, res) => {
   const tweetText = await fetchGeminiThread();
 
-  if (tweetText.startsWith('[Error')) {
-    return res.status(500).send('❌ Failed to generate tweet.');
-  }
+  // if (tweetText.startsWith('[Error')) {
+  //   return res.status(500).send('❌ Failed to generate tweet.');
+  // }
     
     res.send(tweetText);
 });

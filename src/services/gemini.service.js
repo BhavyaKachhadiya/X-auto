@@ -1,10 +1,12 @@
 import { genAI } from '../config.js';
-import { basePrompt, threadPrompt} from '../utils/prompt.js';
+import { threadPrompt} from '../utils/thread.prompt.js';
+import { tweetPrompt} from '../utils/tweet.prompt.js';
 
 export async function fetchGeminiTweet() {
   try {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
-    const result = await model.generateContent(basePrompt);
+    const result = await model.generateContent(tweetPrompt);
+    console.log(result.response.text().trim())
     return result.response.text().trim();
   } catch (error) {
     console.error('❌ Gemini error:', error.message);
@@ -17,7 +19,7 @@ export async function fetchGeminiThread() {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const result = await model.generateContent(threadPrompt);
-    const raw = await result.response.text();
+    const raw = result.response.text();
     console.log("Raw Gemini response:", raw);
 
     // Try to extract and parse a JSON array from the raw text

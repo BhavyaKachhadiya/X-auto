@@ -1,7 +1,6 @@
 import express from 'express';
 import tweetRoutes from './routes/tweet.route.js';
 import geminiRotes from './routes/gemini.route.js';
-import './jobs/scheduler.js'; // Load scheduled jobs
 
 const app = express();
 const PORT = process.env.PORT || 3000;
