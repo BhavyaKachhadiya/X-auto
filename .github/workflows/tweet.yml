@@ -15,4 +15,4 @@ jobs:
       - name: 🛰️ Call /tweet endpoint
         run: |
           echo "📡 Calling tweet endpoint..."
-          curl -v https://x-auto-ochre.vercel.app/thread
+          curl -v https://x-auto-ochre.vercel.app/tweet
