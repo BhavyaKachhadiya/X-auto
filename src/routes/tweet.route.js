@@ -9,18 +9,34 @@ const router = express.Router();
  * Posts a single tweet
  */
 router.get('/tweet', async (_req, res) => {
-  const tweetText = await fetchGeminiTweet();
-
-  if (!tweetText || typeof tweetText !== 'string' || tweetText.startsWith('[Error')) {
-    return res.status(500).send('❌ Failed to generate tweet.');
-  }
-
   try {
+    const tweetText = await fetchGeminiTweet();
+
+    if (!tweetText || typeof tweetText !== 'string' || tweetText.startsWith('[Error')) {
+      console.error('❌ Invalid tweet text:', tweetText);
+      return res.status(500).json({
+        ok: false,
+        error: 'Failed to generate tweet',
+        generatedText: tweetText,
+      });
+    }
+
+    console.log('✍️ Generated tweet:', tweetText);
+
     await postTweet(tweetText);
-    res.send(`✅ Tweet posted:\n\n${tweetText}`);
+
+    return res.status(200).json({
+      ok: true,
+      message: 'Tweet posted successfully',
+      tweet: tweetText,
+    });
+
   } catch (error) {
     console.error('❌ Failed to post tweet:', error);
-    res.status(500).send('❌ Failed to post tweet.');
+    return res.status(500).json({
+      ok: false,
+      error: error instanceof Error ? error.message : String(error),
+    });
   }
 });
 
