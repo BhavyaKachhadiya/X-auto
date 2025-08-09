@@ -2,9 +2,7 @@ name: Tweet Every Day
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # 08:30 AM IST
-    - cron: '30 6 * * *'  # 12:00 PM IST
-    - cron: '30 9 * * *'  # 03:00 PM IST
+    - cron: '30 3,6,9,12,15 * * *'   # 08:30 AM IST
   workflow_dispatch:
 
 jobs:
