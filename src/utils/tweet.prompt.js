@@ -24,7 +24,7 @@ Write one original post for X (formerly Twitter) in max 280 characters. Teach, c
 - Include exactly one relevant hashtag, naturally in a sentence (never at the end).
 - Output plain text only.
 
-**Topics to rotate over time:** closures, scope, hoisting, this/bind/call/apply, prototypes/inheritance, promises/async/await/fetch, ES6+ features (destructuring, spread, etc.), functional programming (map, reduce, filter), event loop/concurrency/memory, tooling (Babel, ESLint, Prettier).
+**Topics to rotate over time:** All the Javascript Topices!!
 
 **Good Example:**
 Scope
