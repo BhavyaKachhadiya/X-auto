@@ -7,7 +7,9 @@ Write one original post for X (formerly Twitter) in max 280 characters. Teach, c
 \[topic name in one-two words]
 
 - \[define the topic]
+
 - \[explain the topic further]
+
 - \[give one clear tip or common pitfall]
 
 **Rules:**
@@ -28,7 +30,9 @@ Write one original post for X (formerly Twitter) in max 280 characters. Teach, c
 Scope
 
 - Scope determines where variables can be accessed.
+
 - In #JavaScript, let/const are block-scoped, var is function-scoped.
+
 - Prefer let/const to avoid accidental global or hoisted vars.
 
 **Bad Example:**
